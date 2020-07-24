@@ -81,7 +81,7 @@ class CoreDataController
         fetchRequest.predicate = NSPredicate(format: "name = %@", name)
         do{
             let queryDelete = try context.fetch(fetchRequest)
-            let contactTodelete = queryDelete[0] as! NSManagedObject
+            let contactTodelete = queryDelete.first as! NSManagedObject
             context.delete(contactTodelete)
             do{
                 try context.save()
